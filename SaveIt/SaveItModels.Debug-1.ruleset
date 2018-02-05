@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="SonarQube - saveit Sonar way" ToolsVersion="15.0">
+  <Include Path="..\sonarqube\saveitcsharp.ruleset" Action="Default" />
+  <Include Path="..\wpsaveit\wpfsaveitviews.ruleset" Action="Default" />
+</RuleSet>

@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaveItModels", "SaveIt\SaveItModels.csproj", "{558AFD14-3AD2-42CC-B218-B8FFB0F03553}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaveItTests", "SaveItTests\SaveItTests.csproj", "{96315C32-4DA8-49F6-B0C5-C0DE5C7AF860}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFSaveItViews", "WpSaveIt\WPFSaveItViews.csproj", "{B62B774E-0636-4F61-8DB5-E692C70A77E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controllers", "Controllers\Controllers.csproj", "{4A04884C-3505-49F3-A7B7-F4DB21A29964}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SonarQube", "SonarQube", "{33F2EF87-A8DB-493E-85DC-BE4FA7E2D02B}"
+	ProjectSection(SolutionItems) = preProject
+		SonarQube\save-it2CSharp.ruleset = SonarQube\save-it2CSharp.ruleset
+		SonarQube\saveit-keyCSharp.ruleset = SonarQube\saveit-keyCSharp.ruleset
+		SonarQube\saveitCSharp.ruleset = SonarQube\saveitCSharp.ruleset
+		SonarQube\SolutionBinding.sqconfig = SonarQube\SolutionBinding.sqconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{558AFD14-3AD2-42CC-B218-B8FFB0F03553}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{558AFD14-3AD2-42CC-B218-B8FFB0F03553}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{558AFD14-3AD2-42CC-B218-B8FFB0F03553}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{558AFD14-3AD2-42CC-B218-B8FFB0F03553}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96315C32-4DA8-49F6-B0C5-C0DE5C7AF860}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96315C32-4DA8-49F6-B0C5-C0DE5C7AF860}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96315C32-4DA8-49F6-B0C5-C0DE5C7AF860}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96315C32-4DA8-49F6-B0C5-C0DE5C7AF860}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B62B774E-0636-4F61-8DB5-E692C70A77E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B62B774E-0636-4F61-8DB5-E692C70A77E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B62B774E-0636-4F61-8DB5-E692C70A77E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B62B774E-0636-4F61-8DB5-E692C70A77E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A04884C-3505-49F3-A7B7-F4DB21A29964}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A04884C-3505-49F3-A7B7-F4DB21A29964}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A04884C-3505-49F3-A7B7-F4DB21A29964}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A04884C-3505-49F3-A7B7-F4DB21A29964}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {378800F2-F014-4536-B3B1-761A0BCE3584}
+	EndGlobalSection
+EndGlobal

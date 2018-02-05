@@ -1,0 +1,119 @@
+﻿<UserControl x:Class="WpSaveIt.AddExpenseView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpSaveIt"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid x:Name="ExpenseGridPanel" Margin="10">
+        <Grid.Resources>
+            <Style TargetType="TextBox">
+                <Style.Triggers>
+                    <Trigger Property="Validation.HasError" Value="True">
+                        <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self}}"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="TextErrorStyle" TargetType="{x:Type TextBox}">
+                <Setter Property="Validation.ErrorTemplate">
+                    <Setter.Value>
+                        <ControlTemplate x:Name="TextErrorTemplate">
+                            <DockPanel LastChildFill="True">
+                                <AdornedElementPlaceholder>
+                                    <Border BorderBrush="Red" 
+
+                                            BorderThickness="2"/>
+                                </AdornedElementPlaceholder>
+                                <TextBlock FontSize="15" 
+
+                                           Foreground="Red">*?*</TextBlock>
+                            </DockPanel>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="Validation.HasError" 
+
+                             Value="True">
+                        <Setter Property="ToolTip" 
+
+                                Value="{Binding RelativeSource=
+            {x:Static RelativeSource.Self},
+            Path=(Validation.Errors)[0].ErrorContent}"></Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Label Content="Category:"/>
+        <TextBox x:Name="Category" Text="{Binding Expense.Category, 
+            ValidatesOnNotifyDataErrors=True,UpdateSourceTrigger=PropertyChanged, 
+            NotifyOnValidationError=True, ValidatesOnExceptions=True}" Grid.Column="1" Margin="0,0,0,10" Grid.ColumnSpan="1"
+                 GotFocus="Category_OnGotFocus"/>
+        <ComboBox Grid.Column="2"
+                  VerticalAlignment="Top"
+                  x:Name="CategoryComboBox"
+                  SelectionChanged="CategoryComboBox_OnSelectionChanged"
+                  Text="Pick Category"/>
+        <Label Grid.Row="1" Content="Description:"/>
+        <TextBox x:Name="Description" Text="{Binding Expense.Description, 
+            ValidatesOnNotifyDataErrors=True,UpdateSourceTrigger=PropertyChanged, 
+            NotifyOnValidationError=True, ValidatesOnExceptions=True}" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10"  Grid.ColumnSpan="2"/>
+        <Label Grid.Row="2" Content="Amount:"/>
+        <TextBox x:Name="Amount" Text="{Binding Expense.Amount, 
+            ValidatesOnNotifyDataErrors=True,UpdateSourceTrigger=PropertyChanged, 
+            NotifyOnValidationError=True, ValidatesOnExceptions=True}" Grid.Row="2" Grid.Column="1" Margin="0,0,0,10"  Grid.ColumnSpan="2"/>
+        <Label Grid.Row="3" Content="Transaction Date:"/>
+        <DatePicker x:Name="TransactionDate" Text="{Binding Expense.TransactionDate, 
+            ValidatesOnNotifyDataErrors=True,UpdateSourceTrigger=PropertyChanged, 
+            NotifyOnValidationError=True, ValidatesOnExceptions=True}"
+                           Grid.Row="3" Grid.Column="1" 
+                           Margin="0,0,0,10"  Grid.ColumnSpan="2"/>
+        <Label Grid.Row="4" Content="Account:"/>
+        <TextBox x:Name="Account" Grid.Row="4" 
+                 Grid.Column="1" Margin="0,0,0,10" 
+                 GotFocus="Account_Focus" Text="{Binding Expense.Account.Name, 
+            ValidatesOnNotifyDataErrors=True,UpdateSourceTrigger=PropertyChanged, 
+            NotifyOnValidationError=True, ValidatesOnExceptions=True}" />
+        <ComboBox Grid.Row="4" Grid.Column="2"  VerticalAlignment="Top"
+                  x:Name="AccountComboBox"
+                  Text="Pick Account"
+                  SelectionChanged="AccountComboBox_OnSelectionChanged"/>
+        <Label Grid.Row="5" Content="Payee:"/>
+        <TextBox x:Name="Payee" Text="{Binding Expense.Payee.Name, 
+            ValidatesOnNotifyDataErrors=True,UpdateSourceTrigger=PropertyChanged, 
+            NotifyOnValidationError=True, ValidatesOnExceptions=True}" Grid.Row="5" 
+                 Grid.Column="1" Margin="0,0,0,10"
+                 GotFocus="Payee_OnGotFocus"/>
+        <ComboBox Grid.Row="5" Grid.Column="2"
+                  VerticalAlignment="Top"
+                  x:Name="PayeeComboBox"
+                  Text="Pick Payee"
+                  SelectionChanged="PayeeComboBox_OnSelectionChanged"/>
+        <CheckBox Grid.Row="6" 
+                  Content="Is a Recurring Expense" Margin="5" Grid.ColumnSpan="2"
+                  x:Name="isRecurringCHK" IsChecked="{Binding IsRecurring}"/>
+
+        <Button Grid.Row="7" Margin="0,4,0,-4" Click="SaveExpense_Click">
+            Save
+        </Button>
+    </Grid>
+</UserControl>

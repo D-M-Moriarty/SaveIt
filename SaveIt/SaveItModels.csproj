@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{558AFD14-3AD2-42CC-B218-B8FFB0F03553}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SaveIt</RootNamespace>
+    <AssemblyName>SaveIt</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>SaveItModels.Debug-1.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>SaveItModels.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EntityClasses\Account.cs" />
+    <Compile Include="EntityClasses\Category.cs" />
+    <Compile Include="EntityClasses\Expense.cs" />
+    <Compile Include="EntityClasses\Goal.cs" />
+    <Compile Include="EntityClasses\Income.cs" />
+    <Compile Include="EntitySaveItContext.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="EntityClasses\Payee.cs" />
+    <Compile Include="Migrations\201710281804562_CreateClasses.cs" />
+    <Compile Include="Migrations\201710281804562_CreateClasses.Designer.cs">
+      <DependentUpon>201710281804562_CreateClasses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710291841349_UpdateIncomeDate.cs" />
+    <Compile Include="Migrations\201710291841349_UpdateIncomeDate.Designer.cs">
+      <DependentUpon>201710291841349_UpdateIncomeDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710291845430_UpdateIncomeDate1.cs" />
+    <Compile Include="Migrations\201710291845430_UpdateIncomeDate1.Designer.cs">
+      <DependentUpon>201710291845430_UpdateIncomeDate1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710291854325_UpdateIncomeDate2.cs" />
+    <Compile Include="Migrations\201710291854325_UpdateIncomeDate2.Designer.cs">
+      <DependentUpon>201710291854325_UpdateIncomeDate2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710291919201_UpdateIncomeDate3.cs" />
+    <Compile Include="Migrations\201710291919201_UpdateIncomeDate3.Designer.cs">
+      <DependentUpon>201710291919201_UpdateIncomeDate3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710291921479_UpdateIncomeDate4.cs" />
+    <Compile Include="Migrations\201710291921479_UpdateIncomeDate4.Designer.cs">
+      <DependentUpon>201710291921479_UpdateIncomeDate4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710292016570_UpdateIncomeDate5.cs" />
+    <Compile Include="Migrations\201710292016570_UpdateIncomeDate5.Designer.cs">
+      <DependentUpon>201710292016570_UpdateIncomeDate5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711022036104_UpdatePayee.cs" />
+    <Compile Include="Migrations\201711022036104_UpdatePayee.Designer.cs">
+      <DependentUpon>201711022036104_UpdatePayee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711061751273_UpdateExpense.cs" />
+    <Compile Include="Migrations\201711061751273_UpdateExpense.Designer.cs">
+      <DependentUpon>201711061751273_UpdateExpense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711061753519_UpdateExpense1.cs" />
+    <Compile Include="Migrations\201711061753519_UpdateExpense1.Designer.cs">
+      <DependentUpon>201711061753519_UpdateExpense1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711061807174_UpdateExpense2.cs" />
+    <Compile Include="Migrations\201711061807174_UpdateExpense2.Designer.cs">
+      <DependentUpon>201711061807174_UpdateExpense2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711131739495_Update_Goal.cs" />
+    <Compile Include="Migrations\201711131739495_Update_Goal.Designer.cs">
+      <DependentUpon>201711131739495_Update_Goal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711282253166_refactor.cs" />
+    <Compile Include="Migrations\201711282253166_refactor.Designer.cs">
+      <DependentUpon>201711282253166_refactor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711282344435_refactor2.cs" />
+    <Compile Include="Migrations\201711282344435_refactor2.Designer.cs">
+      <DependentUpon>201711282344435_refactor2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ObservableObject.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="SaveItModels.Debug-1.ruleset" />
+    <None Include="SaveItModels.Debug.ruleset" />
+    <None Include="SaveItModels.ruleset" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201710281804562_CreateClasses.resx">
+      <DependentUpon>201710281804562_CreateClasses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710291841349_UpdateIncomeDate.resx">
+      <DependentUpon>201710291841349_UpdateIncomeDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710291845430_UpdateIncomeDate1.resx">
+      <DependentUpon>201710291845430_UpdateIncomeDate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710291854325_UpdateIncomeDate2.resx">
+      <DependentUpon>201710291854325_UpdateIncomeDate2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710291919201_UpdateIncomeDate3.resx">
+      <DependentUpon>201710291919201_UpdateIncomeDate3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710291921479_UpdateIncomeDate4.resx">
+      <DependentUpon>201710291921479_UpdateIncomeDate4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710292016570_UpdateIncomeDate5.resx">
+      <DependentUpon>201710292016570_UpdateIncomeDate5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711022036104_UpdatePayee.resx">
+      <DependentUpon>201711022036104_UpdatePayee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711061751273_UpdateExpense.resx">
+      <DependentUpon>201711061751273_UpdateExpense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711061753519_UpdateExpense1.resx">
+      <DependentUpon>201711061753519_UpdateExpense1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711061807174_UpdateExpense2.resx">
+      <DependentUpon>201711061807174_UpdateExpense2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711131739495_Update_Goal.resx">
+      <DependentUpon>201711131739495_Update_Goal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711282253166_refactor.resx">
+      <DependentUpon>201711282253166_refactor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711282344435_refactor2.resx">
+      <DependentUpon>201711282344435_refactor2.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

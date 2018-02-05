@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="WpSaveIt.ViewGoalsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpSaveIt"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Control.Resources>
+        <DataTemplate x:Key="GoalsListDataTemplate">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <TextBlock Name="Name" Text="{Binding Name}" HorizontalAlignment="Left"/>
+                <StackPanel Margin="20, 20, 0, 0">
+                    <TextBlock Text="{Binding SavedAlready}" HorizontalAlignment="Left"/>
+                    <TextBlock  HorizontalAlignment="Left">
+                        <Run Text="Is the goal reached "/>
+                        <Run Text="{Binding GoalIsReached}"/>
+                    </TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+    </Control.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <ListView x:Name="Goal_ListView" GotFocus="Goal_ListView_OnGotFocus" Grid.Row="0" 
+                  ItemsSource="{Binding Path=GoalsList, Mode=TwoWay, 
+            NotifyOnSourceUpdated=True,
+            NotifyOnTargetUpdated=True,
+            UpdateSourceTrigger=PropertyChanged}" 
+                  ItemTemplate="{StaticResource GoalsListDataTemplate}"/>
+
+        <Button Grid.Row="1" Grid.Column="0" Content="Delete Goal" Click="DeleteItem_Click"/>
+        <Button Grid.Row="2" Grid.Column="0" Content="Update Goal" Click="UpdateItem_Click"/>
+        <Button Grid.Row="3" Grid.Column="0" Content="Add Saved Amount" Click="AddSavedAmount_Click"/>
+
+        <TextBlock Grid.Row="4" Grid.Column="0"  Text="PLease entert the amount you with to add to the savings"/>
+        <TextBox Grid.Row="5" Grid.Column="0" x:Name="AddAmount" Text="{Binding AddAmounts, Mode=TwoWay, 
+            NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" />
+
+    </Grid>
+</UserControl>

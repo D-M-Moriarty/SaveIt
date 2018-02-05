@@ -1,0 +1,112 @@
+﻿<UserControl x:Class="WpSaveIt.HomeView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpSaveIt"
+        xmlns:wpf="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
+        mc:Ignorable="d">
+
+    
+    <Control.Resources>
+        <DataTemplate x:Key="IncomeListDataTemplate">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <StackPanel Margin="10">
+                    <TextBlock Name="Description" Text="{Binding Description}" HorizontalAlignment="Left"/>
+                    <TextBlock>Income</TextBlock>
+                </StackPanel>
+                <StackPanel Margin="10">
+                    <TextBlock Text="{Binding FirstGoOff}" HorizontalAlignment="Right"/>
+                    <TextBlock HorizontalAlignment="Right">
+                        <Run Text="€"/>
+                        <Run Text="{Binding Amount}" />
+                    </TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="ExpenseListDataTemplate">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <TextBlock Name="Description" Text="{Binding Category}" HorizontalAlignment="Left"/>
+                <StackPanel  Margin="10">
+                    <TextBlock Text="{Binding Amount}" HorizontalAlignment="Left"/>
+                    <TextBlock/>
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+    </Control.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0"
+                   Margin="0, 0, 160, 0">Put A Graph Here</TextBlock>
+        <TextBlock x:Name="txtTotalIncomes2" Grid.Row="0" Grid.Column="0" 
+                   Margin="160, 0, 0, 0" HorizontalAlignment="Right">
+            <Run Text="Income +€"/>
+            <Run Text="{Binding TotalIncomes, Mode=TwoWay}"/>
+        </TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="0" 
+                   Margin="160,20, 0, 0" HorizontalAlignment="Right">Budget +€600</TextBlock>
+        <TextBlock x:Name="txtTotalExpenses2" Grid.Row="0" Grid.Column="0" 
+                   Margin="160, 40, 0, 0" HorizontalAlignment="Right">
+            <Run Text="Expense -€"/>
+            <Run Text="{Binding TotalExpenses, Mode=OneWay}"/>
+        </TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="0">Total Incomes</TextBlock>
+        <TextBlock x:Name="txtTotalIncomes" Grid.Row="1" 
+                   Grid.Column="1"
+                   HorizontalAlignment="Right">
+            <Run Text="€"/>
+            <Run Text="{Binding TotalIncomes, Mode=OneWay}"/>
+        </TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="0">Total Spent</TextBlock>
+        <TextBlock x:Name="txtTotalExpenses" 
+                   Grid.Row="3" 
+                   Grid.Column="1"
+                   HorizontalAlignment="Right">
+            <Run Text="€"/>
+            <Run Text="{Binding TotalExpenses, Mode=OneWay}"/>
+        </TextBlock>
+
+        <ListView GotFocus="IncomeListView_OnGotFocus"
+                    x:Name="IncomeListView" Grid.Row="2" 
+                  ItemsSource="{Binding Path=IncomeList, Mode=TwoWay, 
+            NotifyOnSourceUpdated=True,
+            NotifyOnTargetUpdated=True,
+            UpdateSourceTrigger=PropertyChanged}"
+                  ItemTemplate="{StaticResource IncomeListDataTemplate}">
+        </ListView>
+        <ListView GotFocus="ExpenseListView_OnGotFocus"
+            x:Name="ExpenseListView"  Grid.Row="4" 
+                  ItemsSource="{Binding Path=ExpenseList, Mode=TwoWay, 
+            NotifyOnSourceUpdated=True,
+            NotifyOnTargetUpdated=True,
+            UpdateSourceTrigger=PropertyChanged}"
+                  ItemTemplate="{StaticResource ExpenseListDataTemplate}">
+        </ListView>
+
+
+        <Button Grid.Row="5" Margin="10, 0" 
+                Content="Update EX"
+                Click="UpdateExpense_ListItem_Click"/>
+        <Button Grid.Row="6" Margin="10, 0" 
+                Content="Delete EX"
+                Click="DeleteExpense_ListItem_Click"/>
+        <Button Grid.Row="7" Margin="10, 0" 
+                Content="Update IN"
+                Click="UpdateIncome_ListItem_Click"/>
+        <Button Grid.Row="8" Margin="10, 0" 
+                Content="Delete IN"
+                Click="DeleteIncomeItem_Click"/>
+
+    </Grid>
+</UserControl>

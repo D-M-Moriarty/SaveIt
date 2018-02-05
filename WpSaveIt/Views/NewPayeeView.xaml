@@ -1,0 +1,99 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpSaveIt"
+             xmlns:SaveIt="clr-namespace:SaveIt;assembly=SaveIt"
+             xmlns:controllers="clr-namespace:Controllers;assembly=Controllers"
+             x:Class="WpSaveIt.NewPayeeView"
+             mc:Ignorable="d" 
+             d:DataContext="{d:DesignInstance controllers:NewPayeeController}"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid x:Name="PayeeGridPanel" Margin="10">
+        <Grid.Resources>
+            <Style TargetType="TextBox">
+                <Style.Triggers>
+                    <Trigger Property="Validation.HasError" Value="True">
+                        <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors).CurrentItem.ErrorContent}"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="TextErrorStyle" TargetType="{x:Type TextBox}">
+                <Setter Property="Validation.ErrorTemplate">
+                    <Setter.Value>
+                        <ControlTemplate x:Name="TextErrorTemplate">
+                            <DockPanel LastChildFill="True">
+                                <AdornedElementPlaceholder>
+                                    <Border BorderBrush="Red" 
+
+                                            BorderThickness="2"/>
+                                </AdornedElementPlaceholder>
+                                <TextBlock FontSize="15" 
+
+                                           Foreground="Red">*?*</TextBlock>
+                            </DockPanel>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="Validation.HasError" 
+
+                             Value="True">
+                        <Setter Property="ToolTip" 
+
+                                Value="{Binding RelativeSource=
+            {x:Static RelativeSource.Self},
+            Path=(Validation.Errors)[0].ErrorContent}"></Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+
+        </Grid.Resources>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Label Content="Name:"/>
+        <TextBox x:Name="Name" 
+                 Text="{Binding Payee.Name, 
+            ValidatesOnNotifyDataErrors=True,UpdateSourceTrigger=PropertyChanged, 
+            NotifyOnValidationError=True, ValidatesOnExceptions=True}" 
+                 Grid.Column="1" Margin="0,0,0,10" />
+        
+        <Label Grid.Row="1" Content="Telephone:"/>
+        <TextBox x:Name="Telephone" 
+                 Text="{Binding Payee.Telephone, 
+            ValidatesOnNotifyDataErrors=True,UpdateSourceTrigger=PropertyChanged, 
+            NotifyOnValidationError=True, ValidatesOnExceptions=True}" 
+                 Grid.Row="1" Grid.Column="1" Margin="0,0,0,10" />
+
+        <Label Grid.Row="2" Content="Address:"/>
+        <TextBox x:Name="Address" 
+                 Text="{Binding Payee.Address, Mode=TwoWay, 
+            ValidatesOnNotifyDataErrors=True,UpdateSourceTrigger=PropertyChanged, 
+            NotifyOnValidationError=True, ValidatesOnExceptions=True}" 
+                 Grid.Row="2" Grid.Column="1" Margin="0,0,0,10" />
+        
+        <Label Grid.Row="3" Content="As of:"/>
+        <DatePicker x:Name="Asof" 
+                 Text="{Binding Payee.AsOfDate, Mode=TwoWay, 
+            ValidatesOnNotifyDataErrors=True,UpdateSourceTrigger=PropertyChanged, 
+            NotifyOnValidationError=True, ValidatesOnExceptions=True}" 
+                 Grid.Row="3" Grid.Column="1" Margin="0,0,0,10" />
+
+        <Button Grid.Row="6" Click="SavePayee_Click" Content="Save"/>
+    </Grid>
+</UserControl>

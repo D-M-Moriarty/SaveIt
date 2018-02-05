@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="New Rule Set" Description=" " ToolsVersion="15.0">
+  <Include Path="..\..\..\..\source\repos\saveit\saveit\controllers\controllers.ruleset" Action="Default" />
+  <Include Path="..\..\..\..\source\repos\saveit\saveit\saveit\saveitmodels.ruleset" Action="Default" />
+  <Include Path="..\..\..\..\source\repos\saveit\saveit\sonarqube\saveit-keycsharp.ruleset" Action="Default" />
+  <Include Path="..\..\..\..\source\repos\saveit\saveit\wpsaveit\wpfsaveitviews.ruleset" Action="Default" />
+  <Include Path="ruleset1.ruleset" Action="Default" />
+</RuleSet>

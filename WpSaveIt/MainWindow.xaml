@@ -1,0 +1,42 @@
+﻿<Window x:Class="WpSaveIt.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpSaveIt"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <DockPanel Background="Gray" Grid.Row="0" Grid.Column="0" Grid.RowSpan="5">
+            <StackPanel>
+                <Button Content="Home Dashboard" Click="MainPage_Click" />
+                <Button Content="New Goal" Click="NewGoal_Click" />
+                <Button Content="Add Expense" Click="AddExpense_Click" />
+                <Button Content="Add Income" Click="AddIncome_Click" />
+                <Button Content="View Goals" Click="ViewGoals_Click" />
+                <Button Content="Add Category" Click="AddCategoryView_Click" />
+                <Button Content="Payees/Payers" Click="ViewPayees_Click" />
+                <Button Content="View Accounts" Click="ViewAccounts_Click" />
+                <Button Content="View Column Chart" Click="ViewColumn_Click" />
+            </StackPanel>
+        </DockPanel>
+
+        <ContentControl Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="5" Content="{Binding}"/>
+    </Grid>
+</Window>
